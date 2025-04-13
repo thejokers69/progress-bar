@@ -13,6 +13,7 @@ permissions:
 
 env:
   PATH: /usr/bin:/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH
+  SHELL: /bin/bash
 
 jobs:
   build:
@@ -21,6 +22,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Debug Environment
+        run: |
+          echo "Current PATH: $PATH"
+          echo "Current SHELL: $SHELL"
+          which sh || echo "sh not found in PATH"
+          ls -la /bin/sh || echo "/bin/sh not found"
+          ls -la /bin/bash || echo "/bin/bash not found"
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
@@ -28,7 +37,13 @@ jobs:
           cache: "npm"
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          # Create symlink to shell if needed
+          if [ ! -f "/bin/sh" ] && [ -f "/bin/bash" ]; then
+            sudo ln -sf /bin/bash /bin/sh
+          fi
+          # Use explicit shell path for npm
+          SHELL=/bin/bash npm ci --no-optional
 
       - name: Build
         run: npm run build
@@ -68,6 +83,7 @@ jobs:
           else
             echo "gzip not found at /usr/bin/gzip, installing with brew"
             brew install gzip
+          fi
 
       - name: Deploy to GitHub Pages
         id: deployment
