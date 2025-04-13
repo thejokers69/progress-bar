@@ -11,10 +11,11 @@ A modern, interactive progress bar component built with React and Vite. Features
 - 🔄 Auto-reset functionality when progress reaches 100%
 - 📱 Responsive design
 - ⚡ Built with React + Vite for optimal performance
+- 🚀 Automated deployment with GitHub Actions
 
 ## Live Demo
 
-[View Live Demo](#) <!-- Add your deployment URL when available -->
+[View Live Demo](https://thejokers69ml.github.io/progress-bar)
 
 ## Getting Started
 
@@ -28,7 +29,7 @@ A modern, interactive progress bar component built with React and Vite. Features
 1. Clone the repository:
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/thejokers69ml/progress-bar.git
 cd progress-bar
 ```
 
@@ -45,6 +46,25 @@ npm run dev
 ```
 
 The app will be available at `http://localhost:5173`
+
+## Deployment
+
+This project uses GitHub Actions for automated deployment to GitHub Pages. The deployment workflow is triggered automatically when:
+
+1. You push changes to the `main` branch
+2. You manually trigger the workflow from the Actions tab
+
+The deployment process:
+
+- Builds the project
+- Deploys to GitHub Pages
+- Makes the site available at: <https://thejokers69ml.github.io/progress-bar>
+
+To enable deployments:
+
+1. Go to your repository settings
+2. Navigate to Pages
+3. Set the source to "GitHub Actions"
 
 ## Usage
 
