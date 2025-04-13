@@ -10,7 +10,8 @@ function App() {
 
   useEffect(() => {
     // Update body class when theme changes
-    document.body.className = `${theme}-mode`;
+    document.body.classList.remove('light-mode', 'dark-mode');
+    document.body.classList.add(`${theme}-mode`);
     // Save theme preference
     localStorage.setItem('theme', theme);
   }, [theme]);
