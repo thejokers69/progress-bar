@@ -17,6 +17,13 @@ A modern, interactive progress bar component built with React and Vite. Features
 
 [View Live Demo](https://thejokers69ml.github.io/progress-bar)
 
+## Author
+
+**Mohamed Lakssir**
+
+- Codédex: [@Thejokers69ML](https://www.codedex.io/@Thejokers69ML)
+- GitHub: [@thejokers69](https://github.com/thejokers69)
+
 ## Getting Started
 
 ### Prerequisites
@@ -29,7 +36,7 @@ A modern, interactive progress bar component built with React and Vite. Features
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/thejokers69ml/progress-bar.git
+git clone https://github.com/thejokers69/progress-bar.git
 cd progress-bar
 ```
 
@@ -58,7 +65,7 @@ The deployment process:
 
 - Builds the project
 - Deploys to GitHub Pages
-- Makes the site available at: <https://thejokers69ml.github.io/progress-bar>
+- Makes the site available at: <https://thejokers69.github.io/progress-bar>
 
 To enable deployments:
 
@@ -133,5 +140,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - Built as part of the Codédex React curriculum
+- Created by Mohamed Lakssir ([@Thejokers69ML](https://www.codedex.io/@Thejokers69ML))
 - Inspired by modern UI/UX practices
 - Thanks to the React and Vite communities
