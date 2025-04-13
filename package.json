@@ -3,6 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": {
+    "name": "Mohamed Lakssir",
+    "url": "https://github.com/thejokers69"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thejokers69/progress-bar.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
