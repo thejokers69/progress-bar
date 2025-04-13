@@ -1,0 +1,38 @@
+---
+updates:
+  - directory: /
+    # Group all development dependencies into a single PR
+    groups:
+      dev-dependencies:
+        dependency-type: development
+        patterns:
+          - '@types/*'
+          - eslint*
+          - '@vitejs/*'
+          - '@babel/*'
+    labels:
+      - dependencies
+      - npm
+    # Limit number of open PRs at once
+    open-pull-requests-limit: 10
+    package-ecosystem: npm
+    schedule:
+      interval: weekly
+    # Specify version update strategy
+    versioning-strategy: auto
+  -     # Configure commit message for self-hosted runner
+commit-message:
+      include: scope
+      prefix: GH Actions
+    directory: /
+    # Set labels for GitHub Actions dependency PRs
+    # Set labels for npm dependency PRs
+    labels:
+      - dependencies
+      - github-actions
+    # Use a lower PR limit for actions as they change less frequently
+    open-pull-requests-limit: 5
+    package-ecosystem: github-actions
+    schedule:
+      interval: monthly
+version: 2
