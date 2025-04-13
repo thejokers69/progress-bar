@@ -12,7 +12,7 @@ permissions:
   id-token: write
 
 env:
-  PATH: /opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH
+  PATH: /usr/bin:/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH
 
 jobs:
   build:
@@ -45,9 +45,32 @@ jobs:
     runs-on: self-hosted
     needs: build
     steps:
-      - name: Install gzip (if missing)
-        run: brew install gzip || echo "gzip already installed"
+      - name: Fix gzip availability
+        run: |
+          # Show debug info
+          echo "Current PATH: $PATH"
+          which gzip || echo "gzip not found in PATH"
+
+          # Create symbolic links in common locations if gzip exists but isn't being found
+          if [ -f "/usr/bin/gzip" ]; then
+            echo "Creating symbolic links to ensure gzip is available"
+            mkdir -p ~/.local/bin
+            ln -sf /usr/bin/gzip ~/.local/bin/gzip
+            echo "Added symbolic link at ~/.local/bin/gzip"
+            
+            # Add .local/bin to PATH for this session
+            export PATH="$HOME/.local/bin:$PATH"
+            echo "Updated PATH: $PATH"
+            
+            # Verify gzip works
+            which gzip
+            gzip --version
+          else
+            echo "gzip not found at /usr/bin/gzip, installing with brew"
+            brew install gzip
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        env:
+          PATH: /usr/bin:/usr/local/bin:/opt/homebrew/bin:$HOME/.local/bin:$PATH
