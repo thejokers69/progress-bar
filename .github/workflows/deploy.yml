@@ -11,6 +11,9 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  PATH: /opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH
+
 jobs:
   build:
     runs-on: self-hosted
