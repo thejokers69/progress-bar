@@ -1,0 +1,28 @@
+.
+├── assets
+│   ├── index-Cte9P5Ut.css
+│   └── index-MFD8RC0E.js
+├── codedex-dark.svg
+├── codedex-light.svg
+├── codedx.svg.png
+├── eslint.config.js
+├── index.html
+├── LICENSE
+├── my_tree_structure.txt
+├── package.json
+├── README.MD
+├── SECURITY.md
+├── src
+│   ├── App.jsx
+│   ├── assets
+│   │   ├── index-Cte9P5Ut.css
+│   │   └── index-MFD8RC0E.js
+│   ├── components
+│   │   └── ProgressBar.jsx
+│   ├── main.jsx
+│   └── styles
+│       └── global.css
+├── updated_project_structure.txt
+└── vite.config.js
+
+6 directories, 20 files
